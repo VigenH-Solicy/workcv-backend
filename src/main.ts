@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const currentDir = dirname(dirname(__filename));
   app.use('/public', express.static(join(currentDir, 'uploads')));
-  await app.listen(3000);
+  await app.listen(process.env.PORT, '0.0.0.0');
 }
 
 bootstrap();
